@@ -7,13 +7,17 @@ import { catchError, firstValueFrom } from 'rxjs';
 @Injectable()
 export class CommitsService {
 
-  constructor(private readonly httpService: HttpService) {}
+  constructor(private readonly httpService: HttpService) { }
 
-  async userData(name:string): Promise<Commit[]> {
+  async commits(owner:string, repo:string): Promise<Commit[]> {
     const { data } = await firstValueFrom(
-      this.httpService.get<Commit[]>('https://api.github.com/users/'+name).pipe(
+      this.httpService.get<Commit[]>('https://api.github.com/repos/'+owner+'/'+repo+'/commits', {
+        headers: {
+          'X-GitHub-Api-Version': '2022-11-28'
+        }
+      }).pipe(
         catchError((error: AxiosError) => {
-            console.log(error)
+          console.log(error)
           throw 'An error happened!';
         }),
       ),

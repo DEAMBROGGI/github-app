@@ -3,12 +3,16 @@ import { CommitsService } from './commits.service';
 import { CreateCommitDto } from '../dto/create-commits.dto';
 import { Commit } from '../interfaces/commits.interface';
 
-@Controller('user')
+@Controller('commits')
 export class CommitsController {
     constructor(private readonly commitsService: CommitsService) { }
 
-    @Get('/:name')
-    async userData(@Param ('name') name: string): Promise<Commit[]> {
-        return this.commitsService.userData(name);
-    }
+    @Post('/repoCommits')
+    async commits(
+        @Body('owner') owner:string,
+        @Body('repo') repo:string
+        ): Promise<Commit[]> {
+        
+        return this.commitsService.commits(owner, repo);
+    }  
 }
