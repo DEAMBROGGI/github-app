@@ -2,9 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateCommitDto {
     @ApiProperty()
-    readonly name: string;
+    readonly owner: string;
     @ApiProperty()
-    readonly age: number;
-    @ApiProperty()
-    readonly breed: string;
+    readonly repo: string;
 }
