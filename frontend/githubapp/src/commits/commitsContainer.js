@@ -12,9 +12,9 @@ export const CommitsContainer = () => {
     const owner = "DEAMBROGGI"
     const repo = "github-app"
 
-    useEffect(() => {
-        dispatch(commitsActions.getCommits(owner,repo))
-    },[])
+    // useEffect(() => {
+    //     dispatch(commitsActions.getCommits(owner,repo))
+    // },[])
     //eslint-disable-next-line
 
     return (

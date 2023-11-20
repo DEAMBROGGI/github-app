@@ -18,7 +18,6 @@ export class CommitGateway {
 
     @SubscribeMessage('newCommit')
     async newCommit(@MessageBody() data: any): Promise<any> {
-        console.log(data)
         return this.server.emit("newCommit", data)
         
     }

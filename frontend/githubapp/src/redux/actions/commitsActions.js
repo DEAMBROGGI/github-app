@@ -19,7 +19,8 @@ const commitsActions = {
 
     },
     commentsSocketConection: () => { 
-        const socket = io.connect("http://localhost:5000"); 
+        const socket = io.connect("http://localhost:5000");
+        console.log(socket) 
         return async (dispatch, getState) => { 
             socket.on('newCommit', ( response ) => { //RECIBE EL EMIT Y EL PARAMETRO 
                 //CREAR NUEVA PROP de STORE PARA PUSH DE EVENTO    
