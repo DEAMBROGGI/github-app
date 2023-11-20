@@ -3,7 +3,9 @@ import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule,{
+    logger:["log", "warn", "error"]
+  });
   const options = new DocumentBuilder()
 
    .setTitle('GitHub Commits Api')
@@ -13,7 +15,7 @@ async function bootstrap() {
    .build();
 
  const document = SwaggerModule.createDocument(app, options);
-
+ 
  SwaggerModule.setup('api', app, document);
 
   await app.listen(5000); 

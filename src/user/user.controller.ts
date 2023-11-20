@@ -25,8 +25,7 @@ constructor(private readonly userService: UserService) { }
         return this.userService.repoWebhooks(owner, repo);
     }     
     @Post('/newCommitEvent')
-    async newCommitEvent() {
-        console.log("llego un nuevo evento") 
-        //return this.userService.newCommitEvent();
-    }       
+    async newCommitEvent(@Body() body: any) {
+        return body;
+    }
 }
