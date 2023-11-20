@@ -8,9 +8,9 @@ import commitsActions from './redux/actions/commitsActions';
 function App() {
   const dispatch = useDispatch()
 
-  useEffect(() => {
-    dispatch(commitsActions.commentsSocketConection())
-  }, [])
+  // useEffect(() => {
+  //   dispatch(commitsActions.commentsSocketConection())
+  // }, [])
 
 
   return (
