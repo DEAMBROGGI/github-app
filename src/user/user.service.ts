@@ -42,10 +42,9 @@ export class UserService {
         );
         return data;
     }
-    async newCommitEvent() {
-    const owner = "llego un nuevo evento"
-        console.log("llego un nuevo evento")
-        return owner
+    async newCommitEvent(req: Request, res: Response) {
+    
+        return res
         
     }
 }
