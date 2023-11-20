@@ -14,18 +14,15 @@ constructor(private readonly userService: UserService) { }
 @Get('/:name/repos')
     async userRepos(@Param ('name') name: string): Promise<User[]> {
         return this.userService.userRepos(name);
-    }
+    } 
 
     @Post('/repoWebHooks')
-    async commits(
+    async commitsHoks(
         @Body('owner') owner:string,
         @Body('repo') repo:string
         ): Promise<User[]> {
         
         return this.userService.repoWebhooks(owner, repo);
-    }     
-    @Post('/newCommitEvent')
-    async newCommitEvent(@Body() body: any) {
-        return body;
-    }
+    }      
+    
 }

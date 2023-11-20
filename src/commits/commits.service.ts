@@ -13,7 +13,9 @@ export class CommitsService {
     const { data } = await firstValueFrom(
       this.httpService.get<Commit[]>('https://api.github.com/repos/'+owner+'/'+repo+'/commits', {
         headers: {
-          'X-GitHub-Api-Version': '2022-11-28'
+          'X-GitHub-Api-Version': '2022-11-28',
+          'Authorization': 'Bearer '+ process.env.GITHUB_TOKEN
+
         }
       }).pipe(
         catchError((error: AxiosError) => {
@@ -23,5 +25,5 @@ export class CommitsService {
       ),
     );
     return data;
-  }
+  } 
 }
