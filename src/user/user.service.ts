@@ -44,7 +44,7 @@ export class UserService {
         return data;
     }
     async newCommitEvent(body:any) {
-        console.log(body)
+        console.log(body) 
         return body
 
     }
