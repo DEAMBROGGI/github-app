@@ -20,6 +20,6 @@ export class CommitsController {
     }  
     @Post('/newCommitEvent')
     async newCommitEvent(@Body() body: any) {
-       return this.commitsGateway.server.emit("newCommit",body)       
+       return this.commitsGateway.newCommit(body)      
     }
 }
