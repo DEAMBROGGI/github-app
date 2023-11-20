@@ -43,8 +43,9 @@ export class UserService {
         return data;
     }
     async newCommitEvent(req: Request, res: Response) {
-    
-        return res
+        let owner = "test"
+    console.log("New Event") 
+        return owner
         
     }
 }
