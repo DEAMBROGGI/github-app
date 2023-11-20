@@ -18,7 +18,7 @@ const commitsActions = {
         }
 
     },
-    commentsSocketConection: () => {
+    commentsSocketConection: () => { 
         const socket = io.connect("http://localhost:5000");
         return async (dispatch, getState) => {
             socket.on('newCommit', ( response ) => { //RECIBE EL EMIT Y EL PARAMETRO 
