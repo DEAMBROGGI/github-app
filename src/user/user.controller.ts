@@ -28,5 +28,5 @@ constructor(private readonly userService: UserService) { }
     async newCommitEvent() {
         console.log("llego un nuevo evento") 
         //return this.userService.newCommitEvent();
-    }      
+    }       
 }
