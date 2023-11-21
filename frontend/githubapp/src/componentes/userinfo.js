@@ -53,7 +53,7 @@ export default function UserPanel() {
                             padding: "5px"
                         }}>
                         <Typography variant="h3"><Link color="inherit" style={{textDecoration:"none"}} href={"https://github.com/"+user.owner} target="_blank">{infoUser.login}</Link></Typography>
-                        <Typography variant="h4"><Link color="inherit" style={{textDecoration:"none"}}href={"https://github.com/"+user.repo} target="_blank">{user.repo}</Link></Typography>
+                        <Typography variant="h4"><Link color="inherit" style={{textDecoration:"none"}}href={"https://github.com/"+user.owner+'/'+user.repo} target="_blank">{user.repo}</Link></Typography>
                         <Typography variant="p" color="grey">{infoUser.name}</Typography>
                     </Grid>
                     <Grid xs={12}
