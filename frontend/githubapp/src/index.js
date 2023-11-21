@@ -6,12 +6,14 @@ import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux'
 import mainReducer from './redux/reducers/mainReducer';
 
-const reduxStore = configureStore({ reducer: mainReducer })
+const reduxStore = configureStore({
+  reducer: mainReducer,
+})
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Provider store={reduxStore}>     
-        <App />
+  <Provider store={reduxStore}>
+    <App />
   </Provider>
 );
 

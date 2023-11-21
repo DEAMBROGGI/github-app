@@ -18,13 +18,32 @@ const commitsActions = {
         }
 
     },
-    commentsSocketConection: () => { 
+    commentsSocketConection: () => {
         const socket = io.connect("http://localhost:5000");
-        console.log(socket) 
-        return async (dispatch, getState) => { 
-            socket.on('newCommit', ( response ) => { //RECIBE EL EMIT Y EL PARAMETRO 
+
+        return async (dispatch, getState) => {
+
+            socket.on('newCommit', (response) => { //RECIBE EL EMIT Y EL PARAMETRO 
                 //CREAR NUEVA PROP de STORE PARA PUSH DE EVENTO    
-                console.log(response)
+
+                let newCommits = []
+                response.commits.map((commit) => {
+                    commit.new = true
+                    return newCommits.unshift(commit)
+                })
+                dispatch({
+                    type: "newCommit",
+                    payload: newCommits
+                })
+                
+                dispatch({
+                    type: 'message',
+                    payload: {
+                        view: true,
+                        message: "The user "+response.sender.login+" changes to this repository",
+                        success: true
+                    }
+                });
             }
             )
         }

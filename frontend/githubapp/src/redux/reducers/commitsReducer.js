@@ -1,5 +1,6 @@
 const initialState = {
-    commit: [],
+    commits: [],
+    newCommit: {}
 
 }
 
@@ -10,6 +11,13 @@ const commitsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 commits: [...action.payload],
+            }
+        case 'newCommit':
+            let newState = [...state.commits]
+            newState.unshift(...action.payload)        
+            return {
+                ...state,
+                 commits:newState              
             }
 
         default:

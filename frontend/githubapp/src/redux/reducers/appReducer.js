@@ -5,6 +5,12 @@ const initialState = {
         message: '',
         success: true
     },
+    user: {
+        owner: "DEAMBROGGI",
+        repo: "github-app"
+    },
+    userInfo: null,
+    userRepo:null
 }
 
 const appReducer = (state = initialState, action) => {
@@ -19,6 +25,16 @@ const appReducer = (state = initialState, action) => {
             return {
                 ...state,
                 snackbar: action.payload,
+            }
+        case 'userInfo':
+            return {
+                ...state,
+                userInfo: action.payload,
+            }
+        case 'userRepo':
+            return {
+                ...state,
+                userRepo: action.payload,
             }
 
         default:

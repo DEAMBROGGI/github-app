@@ -6,6 +6,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
     logger: ["log", "warn", "error"]
   });
+  
   const options = new DocumentBuilder()
 
     .setTitle('GitHub Commits Api')
