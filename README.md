@@ -1,73 +1,37 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# GithubApi
+This application allows you to obtain information about the commits of this project, as well as information about my GitHub profile. 
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This app queries different endpoints of the GitHub REST API, and webhooks configured in the repository for event notification
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+# Run
+- Run **npm i** in the root directory to install the necessary dependencies.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- Add a **.env** file in the root directory with the key **GITHUB_TOKEN** and as value a token of your GitHub users which you can obtain from your profile settings.
 
-## Installation
+- Run the script **start:tunnel** which you will find in the package.json.
 
-```bash
-$ npm install
-```
+- Open the browser and go to the url http://localhost:5000/client/
 
-## Running the app
+## Functionalities
+- Obtain user data and link to profile
 
-```bash
-# development
-$ npm run start
+- Obtain user repositories and links to the repositories.
 
-# watch mode
-$ npm run start:dev
+- Obtain the commits made in this project and link to the details of the commits
 
-# production mode
-$ npm run start:prod
-```
+- Automatic update in case of receiving new commits
 
-## Test
+## Tecnologies
+The backend is built in Nest JS, integrates multiple endpoints, serves a static html file, incorporates endpoints which you can consult at http://localhost:5000/api and also has io socket integration to receive new commit events from a GitHub webhook and emit an event to the front.
 
-```bash
-# unit tests
-$ npm run test
+The frontend is built in React and MUI is used as a design base, the styles are edited from the library props in the different components, it also uses redux for context management and other resources such as moment for date management.
 
-# e2e tests
-$ npm run test:e2e
+Finally, it has a script that incorporates localtunnel to be able to route messages sent from GitHub since these only do so to public urls.
 
-# test coverage
-$ npm run test:cov
-```
+## Conclusion
+  This API has expansion possibilities, incorporating filters, and querying user and repo data dynamically, and extending the commit information using different endpoints of the GitHub API. 
 
-## Support
+I enjoyed developing this project, I hope you enjoy it too. 
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+Thank you
